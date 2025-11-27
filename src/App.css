@@ -1,68 +1,157 @@
+/* Modern gradient background */
 body {
-    background: linear-gradient(135deg, #f8f5f2 0%, #e8e1d9 100%);
-    padding: 40px;
-    font-family: 'Segoe UI', sans-serif;
-     background: url('images.png');
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: no-repeat; /* rasm takrorlanmaydi    */
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Container */
-.menu-container {
-    max-width: 900px;
-    margin: auto;
+/* Glass morphism container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 40px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px white;
-    animation: fadeIn 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
 }
 
-/* Title */
-.menu-title {
+/* Text elements with modern typography */
+.text-item {
+    margin: 15px 0;
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    color: #7a4b27;
-    text-shadow: 1px 1px 3px rgb(255, 255, 255);
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Section */
-.menu-section {
-    margin-bottom: 35px;
-    padding: 20px;
-    background: #faf7f3;
-    border-left: 6px solid #a0522d;
-    border-radius: 8px;
-    transition: 0.3s;
+/* Variant 1 - Gradient text */
+.gradient-text {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8em;
 }
 
-.menu-section:hover {
-    transform: translateX(6px);
-    background: #f3eee9;
+/* Variant 2 - Neon effect */
+.neon-text {
+    color: #ffe66d;
+    text-shadow: 0 0 10px #ffe66d, 0 0 20px #ffe66d, 0 0 30px #ff9ff3;
+    font-size: 1.6em;
 }
 
-/* Section title */
-.menu-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #8b4513;
+/* Variant 3 - Outline text */
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #a29bfe;
+    font-size: 2em;
+    font-weight: 900;
 }
 
-/* List */
-.menu-section ul {
-    padding-left: 25px;
+/* Variant 4 - Animated gradient */
+.animated-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 8s ease infinite;
+    font-size: 1.5em;
 }
 
-.menu-section li {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+/* Variant 5 - Simple white with shadow */
+.white-glow {
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    font-size: 1.4em;
 }
 
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Variant 6 - Purple neon */
+.purple-neon {
+    color: #fd79a8;
+    text-shadow: 0 0 10px #fd79a8, 0 0 20px #e84393;
+    font-size: 1.7em;
+}
+
+/* Variant 7 - Gold metallic */
+.gold-text {
+    color: #fdcb6e;
+    background: linear-gradient(to bottom, #fdcb6e, #e17055);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/* Variant 8 - Blue glow */
+.blue-glow {
+    color: #74b9ff;
+    text-shadow: 0 0 15px #74b9ff, 0 0 25px #0984e3;
+    font-size: 1.6em;
+}
+
+/* Variant 9 - Underline animation */
+.underline-animate {
+    color: #55efc4;
+    font-size: 1.8em;
+    position: relative;
+    display: inline-block;
+}
+
+.underline-animate::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #55efc4;
+    transition: width 0.3s ease;
+    animation: underline 2s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes underline {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Floating animation for specific elements */
+.text-item:nth-child(5),
+.text-item:nth-child(6) {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .text-item {
+        font-size: 90%;
+        margin: 12px 0;
+    }
 }
